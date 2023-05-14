@@ -34,8 +34,7 @@ export class AuthMiddleware implements NestMiddleware {
 
     const user = await this.userModel.findOne({
       _id: decodedToken._id,
-      status: "active",
-      isDeleted: false
+      status: "active"
     }).exec();
 
     if(!user) {
