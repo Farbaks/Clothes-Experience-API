@@ -10,9 +10,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { UsersController } from './routes/users/users.controller';
 import { UserSchema } from './routes/users/schemas/users.schema';
-import { ProductsService } from './routes/products/products.service';
 import { ProductsModule } from './routes/products/products.module';
-import { ProductsController } from './routes/products/products.controller';
 
 @Module({
     imports: [
