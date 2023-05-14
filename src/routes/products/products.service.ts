@@ -161,7 +161,7 @@ export class ProductsService {
             slug: slug
         };
 
-        const result = await this.ProductModel.findOne(modelParameter).exec()
+        const result = await this.ProductModel.findOne(modelParameter).populate('user').exec()
         if (!result) {
             return {
                 statusCode: HttpStatus.BAD_REQUEST,

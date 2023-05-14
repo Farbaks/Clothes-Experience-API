@@ -26,7 +26,20 @@ export class UsersService {
         if (checkUser) {
             return {
                 statusCode: HttpStatus.BAD_REQUEST,
-                message: "User already exists."
+                message: "User with email address already exists."
+            }
+        }
+
+        // Check if Phone Number already exists
+        let checkNumber = await this.UserModel.findOne({
+            phoneNumber: createUserDto.phoneNumber
+        }).exec()
+
+        // Return error if User already exists
+        if (checkNumber) {
+            return {
+                statusCode: HttpStatus.BAD_REQUEST,
+                message: "User with phone number already exists."
             }
         }
 
